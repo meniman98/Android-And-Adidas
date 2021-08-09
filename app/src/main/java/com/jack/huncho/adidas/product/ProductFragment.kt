@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jack.huncho.adidas.R
+import com.jack.huncho.adidas.databinding.ProductFragmentBinding
 
 class ProductFragment : Fragment() {
 
@@ -16,7 +19,20 @@ class ProductFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.product_fragment, container, false)
+
+        val binding: ProductFragmentBinding = DataBindingUtil.inflate(
+            inflater, R.layout.product_fragment, container, false
+        )
+
+         viewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+
+        val adapter = ProductAdapter()
+        binding.productList.adapter = adapter
+        binding.productList.layoutManager = LinearLayoutManager(context)
+
+
+        return binding.root
+
     }
 
 }
