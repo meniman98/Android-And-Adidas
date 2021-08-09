@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.jack.huncho.adidas.R
 import com.jack.huncho.adidas.databinding.ListItemProductBinding
 
@@ -14,6 +15,7 @@ class ProductAdapter(private val productList: LiveData<List<Product>>)
     class ViewHolder private constructor (private val binding: ListItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Product) {
+            binding.executePendingBindings()
             binding.image.setImageResource(R.drawable.ic_launcher_background)
             binding.tvName.text = item.name
             binding.tvDesc.text = item.description

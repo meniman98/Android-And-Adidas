@@ -31,14 +31,11 @@ class ProductFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-
-        binding.productList.layoutManager = LinearLayoutManager(context)
-        //val adapter = ProductAdapter(viewModel.property)
-        //binding.productList.adapter = adapter
         viewModel.property.observe(viewLifecycleOwner, Observer { n ->
             binding.productList.also {
                 val adapter = ProductAdapter(viewModel.property)
                 binding.productList.adapter = adapter
+                binding.productList.layoutManager = LinearLayoutManager(context)
             }
         })
 
