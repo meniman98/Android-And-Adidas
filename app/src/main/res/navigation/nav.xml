@@ -13,6 +13,11 @@
         <action
             android:id="@+id/action_productFragment_to_detail"
             app:destination="@id/detail" />
+        <argument
+            android:name="ID"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="1" />
     </fragment>
     <fragment
         android:id="@+id/detail"

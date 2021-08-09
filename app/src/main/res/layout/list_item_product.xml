@@ -8,11 +8,16 @@
         <variable
             name="product"
             type="com.jack.huncho.adidas.product.Product"/>
+
+        <variable
+            name="clickListener"
+            type="com.jack.huncho.adidas.product.ProductListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{ () -> clickListener.onClick(product) }">
 
         <ImageView
             android:id="@+id/image"
@@ -21,7 +26,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
-            app:imageUrl="@{product.imgUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

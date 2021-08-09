@@ -2,6 +2,7 @@ package com.jack.huncho.adidas.product
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ExpandableListView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -9,17 +10,18 @@ import com.jack.huncho.adidas.R
 import com.jack.huncho.adidas.databinding.ListItemProductBinding
 
 
-class ProductAdapter(private val productList: LiveData<List<Product>>)
+class ProductAdapter(private val productList: LiveData<List<Product>>, val clickListener: ProductListener)
     : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     class ViewHolder private constructor (private val binding: ListItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Product) {
+        fun bind(item: Product, clickListener: ProductListener) {
             binding.executePendingBindings()
+            binding.clickListener = clickListener
             binding.image.setImageResource(R.drawable.ic_launcher_background)
             binding.tvName.text = item.name
             binding.tvDesc.text = item.description
-            binding.tvPrice.text = item.currency
+            binding.tvPrice.text = "$ ${item.price}"
         }
 
         companion object {
@@ -41,12 +43,16 @@ class ProductAdapter(private val productList: LiveData<List<Product>>)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val productProperty = productList.value!![position]
 
-        holder.bind(productProperty)
+        holder.bind(productProperty, clickListener)
     }
 
     override fun getItemCount(): Int {
         return productList.value!!.size
     }
 
+}
+
+class ProductListener(val clickListener: (productId: String) -> Unit) {
+    fun onClick(productItem: Product) = clickListener(productItem.id)
 }
 
