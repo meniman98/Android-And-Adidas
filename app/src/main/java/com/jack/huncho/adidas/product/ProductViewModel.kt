@@ -28,4 +28,9 @@ class ProductViewModel : ViewModel() {
             _property.value = response[0]
         }
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
 }
