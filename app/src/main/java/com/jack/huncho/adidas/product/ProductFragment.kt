@@ -13,7 +13,9 @@ import com.jack.huncho.adidas.databinding.ProductFragmentBinding
 
 class ProductFragment : Fragment() {
 
-    private lateinit var viewModel: ProductViewModel
+    private val viewModel: ProductViewModel by lazy {
+        ViewModelProvider(this).get(ProductViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +26,9 @@ class ProductFragment : Fragment() {
             inflater, R.layout.product_fragment, container, false
         )
 
-         viewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        binding.lifecycleOwner = this
+
+        binding.viewModel = viewModel
 
         val adapter = ProductAdapter()
         binding.productList.adapter = adapter

@@ -15,18 +15,18 @@ private val moshi = Moshi.Builder()
     .build()
 
 private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create())
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)
     .build()
 
-interface MarsApiService {
+interface ProductApiService {
 
     @GET(PRODUCT_ENDPOINT)
     suspend fun getAllProducts() : List<Product>
 }
 
-object MarsApi {
-    val retrofitService: MarsApiService by lazy {
-        retrofit.create(MarsApiService::class.java)
+object ProductApi {
+    val retrofitService: ProductApiService by lazy {
+        retrofit.create(ProductApiService::class.java)
     }
 }
