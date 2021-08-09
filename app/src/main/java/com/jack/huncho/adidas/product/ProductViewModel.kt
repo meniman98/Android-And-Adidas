@@ -14,8 +14,8 @@ class ProductViewModel : ViewModel() {
     private var viewModelJob = Job()
     private val scope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    private var _property = MutableLiveData<Product>()
-    val property: LiveData<Product>
+    private var _property = MutableLiveData<List<Product>>()
+    val property: LiveData<List<Product>>
         get() = _property
 
     init {
@@ -25,7 +25,7 @@ class ProductViewModel : ViewModel() {
     private fun getRequest() {
         scope.launch {
             val response = ProductApi.retrofitService.getAllProducts()
-            _property.value = response[0]
+            _property.value = response
         }
     }
 

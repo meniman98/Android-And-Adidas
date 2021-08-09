@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jack.huncho.adidas.R
 import com.jack.huncho.adidas.databinding.ProductFragmentBinding
@@ -30,9 +31,16 @@ class ProductFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-        val adapter = ProductAdapter()
-        binding.productList.adapter = adapter
+
         binding.productList.layoutManager = LinearLayoutManager(context)
+        //val adapter = ProductAdapter(viewModel.property)
+        //binding.productList.adapter = adapter
+        viewModel.property.observe(viewLifecycleOwner, Observer { n ->
+            binding.productList.also {
+                val adapter = ProductAdapter(viewModel.property)
+                binding.productList.adapter = adapter
+            }
+        })
 
 
         return binding.root
