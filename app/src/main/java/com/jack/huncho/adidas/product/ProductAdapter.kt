@@ -13,12 +13,11 @@ import com.jack.huncho.adidas.databinding.ListItemProductBinding
 class ProductAdapter(private val productList: LiveData<List<Product>>, val clickListener: ProductListener)
     : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
-    class ViewHolder private constructor (private val binding: ListItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor (val binding: ListItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Product, clickListener: ProductListener) {
             binding.executePendingBindings()
             binding.clickListener = clickListener
-            binding.image.setImageResource(R.drawable.ic_launcher_background)
             binding.tvName.text = item.name
             binding.tvDesc.text = item.description
             binding.tvPrice.text = "$ ${item.price}"
@@ -42,6 +41,9 @@ class ProductAdapter(private val productList: LiveData<List<Product>>, val click
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val productProperty = productList.value!![position]
+
+        // this line here allows you to attach a product to the viewholder
+        holder.binding.product = productList.value!![position]
 
         holder.bind(productProperty, clickListener)
     }
