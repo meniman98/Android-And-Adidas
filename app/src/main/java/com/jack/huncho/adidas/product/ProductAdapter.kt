@@ -23,7 +23,7 @@ class ProductAdapter(private val productList: LiveData<List<Product>>, val click
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
 
-                // TODO (03) Inflate layout using binding object assigned to ListItemSleepNightBinding.
+
                 val binding = ListItemProductBinding.inflate(layoutInflater, parent, false)
 
                 return ViewHolder(binding)
