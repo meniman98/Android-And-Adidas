@@ -65,7 +65,7 @@
 
         <TextView
             android:id="@+id/tvPrice"
-            android:text="@{ @string/price(product.price) }"
+            android:text="@{@string/price(product.currency, product.price)}"
             android:layout_width="0dp"
             android:layout_height="19dp"
             android:layout_marginStart="8dp"

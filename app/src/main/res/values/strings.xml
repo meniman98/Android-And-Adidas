@@ -2,5 +2,5 @@
     <string name="app_name">Adidas</string>
     <string name="product_name">Name: %s</string>
     <string name="description">Description: %s</string>
-    <string name="price">Price: $%d</string>
+    <string name="price">Price: %s%d</string>
 </resources>
