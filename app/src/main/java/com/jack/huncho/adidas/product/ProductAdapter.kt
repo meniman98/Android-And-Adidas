@@ -42,6 +42,9 @@ class ProductAdapter(private val productList: LiveData<List<Product>>, val click
     }
 
     override fun getItemCount(): Int {
+        if (productList.value == null) {
+            return 0
+        }
         return productList.value!!.size
     }
 
