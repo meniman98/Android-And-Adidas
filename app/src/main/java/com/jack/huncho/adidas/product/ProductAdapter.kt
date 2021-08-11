@@ -16,7 +16,6 @@ class ProductAdapter(private val productList: LiveData<List<Product>>, val click
     class ViewHolder private constructor (val binding: ListItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(clickListener: ProductListener) {
-            binding.executePendingBindings()
             binding.clickListener = clickListener
         }
 
