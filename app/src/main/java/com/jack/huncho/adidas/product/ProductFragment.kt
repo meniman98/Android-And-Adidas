@@ -22,7 +22,7 @@ class ProductFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val binding: ProductFragmentBinding = DataBindingUtil.inflate(
             inflater, R.layout.product_fragment, container, false
@@ -30,17 +30,16 @@ class ProductFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        binding.viewModel = viewModel
+        binding.productList.layoutManager = LinearLayoutManager(context)
 
         val adapter = ProductAdapter(viewModel.property, ProductListener {
             val action = ProductFragmentDirections.actionProductFragmentToDetail()
             findNavController().navigate(action)
         })
-        binding.productList.adapter = adapter
 
-        viewModel.property.observe(viewLifecycleOwner, Observer { n ->
+        viewModel.property.observe(viewLifecycleOwner, {
             binding.productList.also {
-                binding.productList.layoutManager = LinearLayoutManager(context)
+                binding.productList.adapter = adapter
             }
         })
 
