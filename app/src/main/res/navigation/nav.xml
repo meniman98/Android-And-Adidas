@@ -23,5 +23,10 @@
         android:id="@+id/detail"
         android:name="com.jack.huncho.adidas.detail.Detail"
         android:label="detail_fragment"
-        tools:layout="@layout/detail_fragment" />
+        tools:layout="@layout/detail_fragment" >
+        <argument
+            android:name="productId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>
