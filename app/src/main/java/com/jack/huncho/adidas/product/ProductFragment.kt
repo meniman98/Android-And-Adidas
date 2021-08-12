@@ -38,7 +38,8 @@ class ProductFragment : Fragment() {
         binding.productList.layoutManager = LinearLayoutManager(context)
 
         val adapter = ProductAdapter(viewModel.property, ProductListener {
-            val action = ProductFragmentDirections.actionProductFragmentToDetail()
+            /*TODO add ID to direction*/
+            val action = ProductFragmentDirections.actionProductFragmentToDetail("2")
             findNavController().navigate(action)
         })
 

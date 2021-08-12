@@ -13,11 +13,6 @@
         <action
             android:id="@+id/action_productFragment_to_detail"
             app:destination="@id/detail" />
-        <argument
-            android:name="ID"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="1" />
     </fragment>
     <fragment
         android:id="@+id/detail"
@@ -26,7 +21,9 @@
         tools:layout="@layout/detail_fragment" >
         <argument
             android:name="productId"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detail_to_productFragment"
+            app:destination="@id/productFragment" />
     </fragment>
 </navigation>

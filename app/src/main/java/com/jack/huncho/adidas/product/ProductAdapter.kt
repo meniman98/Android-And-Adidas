@@ -10,7 +10,7 @@ import com.jack.huncho.adidas.R
 import com.jack.huncho.adidas.databinding.ListItemProductBinding
 
 
-class ProductAdapter(private val productList: LiveData<List<Product>>, val clickListener: ProductListener)
+class ProductAdapter(private val productList: LiveData<List<Product>>, private val clickListener: ProductListener)
     : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     class ViewHolder private constructor (val binding: ListItemProductBinding) : RecyclerView.ViewHolder(binding.root) {
