@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">Adidas</string>
-    <string name="product_name">Name: %s</string>
+    <string name="product_name">Product Name: %s</string>
     <string name="description">Description: %s</string>
     <string name="price">Price: %s%d</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shoePicture">Picture of a shoe</string>
 </resources>

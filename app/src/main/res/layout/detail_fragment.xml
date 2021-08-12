@@ -15,7 +15,7 @@
         tools:context=".detail.Detail">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/ivDetailPhoto"
             app:imageUrl="@{viewModel.product.imgUrl}"
             android:layout_width="0dp"
             android:layout_height="200dp"
@@ -25,33 +25,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="@string/shoePicture" />
 
         <TextView
             android:id="@+id/tvDetailName"
-            android:text="@{viewModel.product.name}"
+            android:text="@{@string/product_name(viewModel.product.name)}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/ivDetailPhoto"
             tools:text="Adidas NMD" />
 
         <TextView
             android:id="@+id/tvDetailPrice"
-            android:text="@{viewModel.product.price}"
+            android:text="@{@string/price(viewModel.product.currency, viewModel.product.price)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toEndOf="@+id/tvDetailName"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/ivDetailPhoto"
             tools:text="$25" />
 
         <TextView
             android:id="@+id/tvDetailDesc"
-            android:text="@{viewModel.product.description}"
+            android:text="@{@string/description(viewModel.product.description)}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
