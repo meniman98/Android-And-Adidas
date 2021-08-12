@@ -50,7 +50,7 @@ class ProductAdapter(private val productList: LiveData<List<Product>>, private v
 
 }
 
-class ProductListener(val clickListener: () -> Unit) {
-    fun onClick() = clickListener()
+class ProductListener(val clickListener: (product: Product) -> Unit) {
+    fun onClick(product: Product) = clickListener(product)
 }
 

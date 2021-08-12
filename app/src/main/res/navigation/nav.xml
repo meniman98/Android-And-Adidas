@@ -16,14 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/detail"
-        android:name="com.jack.huncho.adidas.detail.Detail"
+        android:name="com.jack.huncho.adidas.detail.DetailFragment"
         android:label="detail_fragment"
         tools:layout="@layout/detail_fragment" >
         <argument
-            android:name="productId"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_detail_to_productFragment"
-            app:destination="@id/productFragment" />
+            android:name="product"
+            app:argType="com.jack.huncho.adidas.product.Product" />
     </fragment>
 </navigation>

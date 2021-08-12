@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.jack.huncho.adidas.R
 import com.jack.huncho.adidas.databinding.ProductFragmentBinding
 import com.jack.huncho.adidas.network.ProductApiService
@@ -39,7 +38,7 @@ class ProductFragment : Fragment() {
 
         val adapter = ProductAdapter(viewModel.property, ProductListener {
             /*TODO add ID to direction*/
-            val action = ProductFragmentDirections.actionProductFragmentToDetail("2")
+            val action = ProductFragmentDirections.actionProductFragmentToDetail(it)
             findNavController().navigate(action)
         })
 
