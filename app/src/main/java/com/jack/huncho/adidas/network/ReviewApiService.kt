@@ -3,6 +3,7 @@ package com.jack.huncho.adidas.network
 import com.jack.huncho.adidas.review.Review
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -22,7 +23,7 @@ private val retrofit = Retrofit.Builder()
 interface ReviewApiService {
 
     @GET
-    suspend fun getAll(): List<Review>
+    suspend fun getAll(): Response<List<Review>>
 
     companion object {
         operator fun invoke(): ReviewApiService {
