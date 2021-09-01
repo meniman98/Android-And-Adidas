@@ -18,11 +18,6 @@ abstract class ProductApi {
             Log.i(TAG, "getAllRequest: ${e.message}")
         }
         return response?.body()
-
-
-//        else {
-//            throw Exception(response.code().toString())
-//        }
     }
 
 }
