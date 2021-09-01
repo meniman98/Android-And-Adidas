@@ -2,11 +2,8 @@ package com.jack.huncho.adidas.repo
 
 import com.jack.huncho.adidas.network.ReviewApi
 import com.jack.huncho.adidas.network.ReviewApiService
-import com.jack.huncho.adidas.review.Review
 
-class ReviewRepo(private val api: ReviewApiService) {
+class ReviewRepo(private val api: ReviewApiService) : ReviewApi() {
 
-    suspend fun getAll(): List<Review> {
-        return api.getAll()
-    }
+    suspend fun getAll() = getAllRequest {api.getAll()}
 }
