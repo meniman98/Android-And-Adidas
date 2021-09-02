@@ -9,8 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.jack.huncho.adidas.R
 import com.jack.huncho.adidas.databinding.DetailFragmentBinding
+import com.jack.huncho.adidas.network.ReviewApiService
+import com.jack.huncho.adidas.repo.ReviewRepo
 
 class DetailFragment : Fragment() {
+
+    private val repo = ReviewRepo(ReviewApiService())
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,7 +28,7 @@ class DetailFragment : Fragment() {
 
         val product = DetailFragmentArgs.fromBundle(requireArguments()).product
 
-        val factory = DetailViewModelFactory(product)
+        val factory = DetailViewModelFactory(product, repo)
 
         binding.viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)
 

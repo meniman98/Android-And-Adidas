@@ -8,6 +8,6 @@ data class Review(
     val name: String,
     val desc: String,
     val rating: Int,
-    val date: LocalDate,
+ //   val date: LocalDate,
     val id: Long
 )

@@ -5,5 +5,5 @@ import com.jack.huncho.adidas.network.ReviewApiService
 
 class ReviewRepo(private val api: ReviewApiService) : ReviewApi() {
 
-    suspend fun getAll() = getAllRequest {api.getAll()}
+    suspend fun getAll() = getAllRequest { api.getAll() }
 }
