@@ -1,5 +1,6 @@
 package com.jack.huncho.adidas.detail
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,6 +12,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class DetailViewModel(product: Product, private val repo: ReviewRepo) : ViewModel() {
 
@@ -33,6 +36,7 @@ class DetailViewModel(product: Product, private val repo: ReviewRepo) : ViewMode
 
     }
 
+    @SuppressLint("NullSafeMutableLiveData")
     private fun getRequest() {
         scope.launch {
             val response = repo.getAll()
@@ -40,7 +44,7 @@ class DetailViewModel(product: Product, private val repo: ReviewRepo) : ViewMode
                 response.isNullOrEmpty() ->
                     Log.i(TAG, "getRequest: ")
                 else -> {
-                    _property.value = response!!
+                    _property.value = response
                 }
 
 
