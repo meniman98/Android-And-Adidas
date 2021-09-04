@@ -33,6 +33,7 @@ class DetailFragment : Fragment() {
         val viewModel: DetailViewModel by lazy {
             ViewModelProvider(this, factory).get(DetailViewModel::class.java)
         }
+        binding.model = viewModel
 
         // recyclerview
         binding.reviewList.layoutManager = LinearLayoutManager(context)

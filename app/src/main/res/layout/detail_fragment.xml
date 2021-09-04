@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="model"
             type="com.jack.huncho.adidas.detail.DetailViewModel" />
     </data>
 
@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/ivDetailPhoto"
-            app:imageUrl="@{viewModel.product.imgUrl}"
+            app:imageUrl="@{model.product.imgUrl}"
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:layout_marginStart="16dp"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/tvDetailName"
-            android:text="@{@string/product_name(viewModel.product.name)}"
+            android:text="@{@string/product_name(model.product.name)}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/tvDetailPrice"
-            android:text="@{@string/price(viewModel.product.currency, viewModel.product.price)}"
+            android:text="@{@string/price(model.product.currency, model.product.price)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/tvDetailDesc"
-            android:text="@{@string/description(viewModel.product.description)}"
+            android:text="@{@string/description(model.product.description)}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
