@@ -4,7 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="review"
+            type="com.jack.huncho.adidas.review.Review" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,6 +15,7 @@
 
         <TextView
             android:id="@+id/tvTitle"
+            android:text="@{review.title}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -23,6 +26,7 @@
 
         <TextView
             android:id="@+id/tvName"
+            android:text="@{review.name}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -33,6 +37,7 @@
 
         <TextView
             android:id="@+id/tvDesc"
+            android:text="@{review.desc}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -45,19 +50,20 @@
 
         <RatingBar
             android:id="@+id/starRating"
+            android:numStars="5"
+            android:rating="@{review.rating}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:background="@color/white"
             android:isIndicator="false"
-            android:numStars="5"
-            android:rating="5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
         <TextView
             android:id="@+id/tvDate"
+            android:text="@{review.date}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

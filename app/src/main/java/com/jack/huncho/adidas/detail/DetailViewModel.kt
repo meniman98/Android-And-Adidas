@@ -33,7 +33,6 @@ class DetailViewModel(product: Product, private val repo: ReviewRepo) : ViewMode
     init {
         _product.value = product
         getRequest()
-
     }
 
     @SuppressLint("NullSafeMutableLiveData")
